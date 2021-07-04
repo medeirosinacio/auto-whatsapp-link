@@ -1,0 +1,33 @@
+{
+  "name": "Auto WhatsApp Link",
+  "description": "An extension to send messages via WhatsApp to selected phone numbers",
+  "version": "0.1",
+  "manifest_version": 2,
+  "icons": {
+    "16": "icon16.ico",
+    "48": "icon48.ico",
+    "128": "icon128.ico"
+  },
+  "permissions": [
+    "background",
+    "tabs",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": [
+      "script.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "script.js"
+      ]
+    }
+  ]
+}
