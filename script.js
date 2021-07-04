@@ -59,8 +59,14 @@ function getNumber(str) {
 
 function openWhats(number, tab) {
 
+    let selectionNumber = getNumber(number.selectionText);
+
+    if (selectionNumber.substring(0, 4) !== '0800' && selectionNumber.substring(0, 1) !== '+') {
+        selectionNumber = msg('DDI') + selectionNumber;
+    }
+
     chrome.tabs.create({
-        url: "https://wa.me/" + getNumber(number.selectionText)
+        url: "https://wa.me/" + selectionNumber
     });
 
 }
